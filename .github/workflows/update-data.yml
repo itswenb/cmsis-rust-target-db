@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      CMSIS_PACK_ROOT: ${{ runner.temp }}/cmsis-packs
+      CMSIS_PACK_ROOT: ${{ github.workspace }}/.cmsis-packs
       CMSIS_TOOLBOX_VERSION: "2.14.1"
       CMSIS_TOOLBOX_SHA256: "c83735c0c1dfd95b2865e908c7adb8cd5d4fd7ec61da96990072d9e77b3e3e25"
 
