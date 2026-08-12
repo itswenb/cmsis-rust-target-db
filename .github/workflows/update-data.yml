@@ -1,0 +1,100 @@
+name: 更新 MCU 数据库
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 每周三 03:17 UTC 运行。
+    - cron: "17 3 * * 3"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-mcu-database
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CMSIS_PACK_ROOT: ${{ runner.temp }}/cmsis-packs
+      CMSIS_TOOLBOX_VERSION: "2.14.1"
+      CMSIS_TOOLBOX_SHA256: "c83735c0c1dfd95b2865e908c7adb8cd5d4fd7ec61da96990072d9e77b3e3e25"
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: 安装 Rust
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup default stable
+
+      - name: 安装固定版本的 CMSIS-Toolbox
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/cmsis-toolbox"
+          curl --fail --location --silent --show-error \
+            --output "${RUNNER_TEMP}/cmsis-toolbox-linux-amd64.tar.gz" \
+            "https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases/download/${CMSIS_TOOLBOX_VERSION}/cmsis-toolbox-linux-amd64.tar.gz"
+          printf '%s  %s\n' \
+            "${CMSIS_TOOLBOX_SHA256}" \
+            "${RUNNER_TEMP}/cmsis-toolbox-linux-amd64.tar.gz" \
+            | sha256sum -c -
+          tar -xzf "${RUNNER_TEMP}/cmsis-toolbox-linux-amd64.tar.gz" \
+            -C "${RUNNER_TEMP}/cmsis-toolbox" \
+            --strip-components=1
+          chmod -R +x "${RUNNER_TEMP}/cmsis-toolbox/bin"
+          echo "${RUNNER_TEMP}/cmsis-toolbox/bin" >> "$GITHUB_PATH"
+
+      - name: 拉取 Keil CMSIS-Pack 索引和 PDSC 文件
+        shell: bash
+        run: |
+          set -euo pipefail
+          cpackget -V
+          # 上游索引存在完全重复的条目；单并发可避免同名 PDSC 的 rename/delete 竞态。
+          cpackget init -C 1 https://www.keil.com/pack/index.pidx --all-pdsc-files
+
+      - name: 生成数据库
+        run: |
+          cargo run --release -- generate \
+            --pdsc-root "${CMSIS_PACK_ROOT}/.Web" \
+            --index-file "${CMSIS_PACK_ROOT}/.Web/index.pidx" \
+            --out-dir data
+
+      - name: 验证生成器
+        run: cargo test
+
+      - name: 验证已知设备映射
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo run --release -- query GD32F303CG | grep -q '"rust_target": "thumbv7em-none-eabihf"'
+
+      - name: 提交数据变化
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain -- data Cargo.lock)" ]]; then
+            echo "数据库没有变化。"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data Cargo.lock
+          git commit -m "数据：更新 CMSIS 设备数据库"
+
+          AUTH_HEADER="$(printf 'x-access-token:%s' "${GITHUB_TOKEN}" | base64 -w 0)"
+          trap 'git config --local --unset-all http.https://github.com/.extraheader || true' EXIT
+          git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${AUTH_HEADER}"
+          unset AUTH_HEADER
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"
+          git config --local --unset-all http.https://github.com/.extraheader
+          trap - EXIT

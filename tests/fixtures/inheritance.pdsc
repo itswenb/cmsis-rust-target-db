@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.60" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+  <vendor>GigaDevice</vendor>
+  <name>GD32F30x_DFP</name>
+  <url>https://example.invalid/GigaDevice/</url>
+  <releases>
+    <release version="1.2.3">Synthetic fixture for tests</release>
+  </releases>
+  <devices>
+    <family Dfamily="GD32F30x" Dvendor="GigaDevice:123">
+      <processor Dcore="Cortex-M4" DcoreVersion="r0p1" Ddsp="DSP"/>
+      <subFamily DsubFamily="GD32F303">
+        <processor Dfpu="SP_FPU" Dendian="Little-endian" Dmpu="MPU" Dclock="120000000"/>
+        <device Dname="GD32F303CG">
+          <variant Dvariant="GD32F303CGT6"/>
+        </device>
+      </subFamily>
+    </family>
+  </devices>
+</package>

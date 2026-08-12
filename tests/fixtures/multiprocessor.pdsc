@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package schemaVersion="1.7.60" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+  <vendor>TestVendor</vendor>
+  <name>MultiProcessor_DFP</name>
+  <url>https://example.invalid/TestVendor/</url>
+  <releases>
+    <release version="1.0.0">Synthetic fixture for tests</release>
+  </releases>
+  <devices>
+    <family Dfamily="TEST" Dvendor="TestVendor:999">
+      <processor Dendian="Little-endian" Dfpu="0" Dclock="10000000"/>
+      <processor Pname="CPU0" Dcore="Cortex-M4" Dfpu="DP_FPU" Dclock="80000000"/>
+      <processor Pname="CPU1" Dcore="Cortex-M33" Dfpu="SP_FPU" Dclock="64000000"/>
+      <subFamily DsubFamily="TEST1">
+        <processor Dfpu="0" Dclock="0x02DC6C00" Dmpu="MPU"/>
+        <device Dname="TEST123">
+          <processor Pname="CPU0" Dfpu="SP_FPU" Dclock="120000000" Ddsp="DSP"/>
+          <variant Dvariant="TEST123A"/>
+        </device>
+      </subFamily>
+    </family>
+  </devices>
+</package>

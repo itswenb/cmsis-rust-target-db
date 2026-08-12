@@ -1,0 +1,26 @@
+name: 持续集成
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: 安装 Rust
+        run: |
+          rustup toolchain install stable --profile minimal --component rustfmt --component clippy
+          rustup default stable
+
+      - name: 运行 Clippy
+        run: cargo clippy --all-targets --all-features -- -D warnings
+
+      - name: 运行测试
+        run: cargo test --all-features
