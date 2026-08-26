@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "record_count": 14483,
-  "pdsc_file_count": 1480,
-  "rust_target_resolved_count": 14442,
+  "record_count": 14511,
+  "pdsc_file_count": 1482,
+  "rust_target_resolved_count": 14470,
   "rust_target_unresolved_count": 41,
-  "source_index_sha256": "7bece46f36bfb56ec6d697e9b619c1ac1e34edb4ee3fc58f57c58d778b307520"
+  "source_index_sha256": "4aeaa720d422fe3fb69652f515671d35e0c4bf81069d45bc5af9f5e9b568875c"
 }
