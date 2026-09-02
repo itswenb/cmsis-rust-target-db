@@ -456,8 +456,8 @@ Analog Devices,ADuCM320,device,,,,Cortex-M3,r2p1,NO_FPU,Little-endian,,,,0,80000
 Analog Devices,ADuCM320i,device,,,,Cortex-M3,r2p1,NO_FPU,Little-endian,,,,0,80000000,thumbv7m-none-eabi,AnalogDevices,ADuCM320_DFP,1.1.1,https://download.analog.com/tools/EZBoards/ADuCM32x/Releases/,AnalogDevices.ADuCM320_DFP.pdsc
 Analog Devices,ADuCM322,device,,,,Cortex-M3,r2p1,NO_FPU,Little-endian,,,,0,80000000,thumbv7m-none-eabi,AnalogDevices,ADuCM320_DFP,1.1.1,https://download.analog.com/tools/EZBoards/ADuCM32x/Releases/,AnalogDevices.ADuCM320_DFP.pdsc
 Analog Devices,ADuCM322i,device,,,,Cortex-M3,r2p1,NO_FPU,Little-endian,,,,0,80000000,thumbv7m-none-eabi,AnalogDevices,ADuCM320_DFP,1.1.1,https://download.analog.com/tools/EZBoards/ADuCM32x/Releases/,AnalogDevices.ADuCM320_DFP.pdsc
-Analog Devices,ADuCM355,device,,,,Cortex-M3,r2p1,NO_FPU,Little-endian,,,NO_TZ,NO_MPU,26000000,thumbv7m-none-eabi,AnalogDevices,ADuCM355_DFP,2.0.0,http://download.analog.com/tools/EZBoards/ADuCM355/Releases/,AnalogDevices.ADuCM355_DFP.pdsc
-Analog Devices,ADuCM356,device,,,,Cortex-M3,r2p1,NO_FPU,Little-endian,,,NO_TZ,NO_MPU,26000000,thumbv7m-none-eabi,AnalogDevices,ADuCM355_DFP,2.0.0,http://download.analog.com/tools/EZBoards/ADuCM355/Releases/,AnalogDevices.ADuCM355_DFP.pdsc
+Analog Devices,ADuCM355,device,,,,Cortex-M3,r2p1,NO_FPU,Little-endian,,,NO_TZ,NO_MPU,26000000,thumbv7m-none-eabi,AnalogDevices,ADuCM355_DFP,2.1.0,http://download.analog.com/tools/EZBoards/ADuCM355/Releases/,AnalogDevices.ADuCM355_DFP.pdsc
+Analog Devices,ADuCM356,device,,,,Cortex-M3,r2p1,NO_FPU,Little-endian,,,NO_TZ,NO_MPU,26000000,thumbv7m-none-eabi,AnalogDevices,ADuCM355_DFP,2.1.0,http://download.analog.com/tools/EZBoards/ADuCM355/Releases/,AnalogDevices.ADuCM355_DFP.pdsc
 Analog Devices,ADuCM360,device,,,,Cortex-M3,r2p0,NO_FPU,Little-endian,,,,0,16000000,thumbv7m-none-eabi,AnalogDevices,ADuCM36x_DFP,2.1.0,http://download.analog.com/tools/EZBoards/CM36x/Releases/,AnalogDevices.ADuCM36x_DFP.pdsc
 Analog Devices,ADuCM361,device,,,,Cortex-M3,r2p0,NO_FPU,Little-endian,,,,0,16000000,thumbv7m-none-eabi,AnalogDevices,ADuCM36x_DFP,2.1.0,http://download.analog.com/tools/EZBoards/CM36x/Releases/,AnalogDevices.ADuCM36x_DFP.pdsc
 Analog Devices,ADuCM362,device,,,,Cortex-M3,r2p0,NO_FPU,Little-endian,,,,0,16000000,thumbv7m-none-eabi,AnalogDevices,ADuCM36x_DFP,2.1.0,http://download.analog.com/tools/EZBoards/CM36x/Releases/,AnalogDevices.ADuCM36x_DFP.pdsc
@@ -476,9 +476,9 @@ Cmsemicon,BAT32A237KH32FP,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,48
 Cmsemicon,BAT32A237KH40NB,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,48000000,thumbv6m-none-eabi,Cmsemicon,BAT32A237,1.0.9,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A237.pdsc
 Cmsemicon,BAT32A237KH48FA,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,48000000,thumbv6m-none-eabi,Cmsemicon,BAT32A237,1.0.9,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A237.pdsc
 Cmsemicon,BAT32A237KH64FB,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,48000000,thumbv6m-none-eabi,Cmsemicon,BAT32A237,1.0.9,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A237.pdsc
-Cmsemicon,BAT32A239KK48FA,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A239,1.0.6,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A239.pdsc
-Cmsemicon,BAT32A239KK64FB,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A239,1.0.6,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A239.pdsc
-Cmsemicon,BAT32A239KK80FA,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A239,1.0.6,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A239.pdsc
+Cmsemicon,BAT32A239KK48FA,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A239,1.0.8,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A239.pdsc
+Cmsemicon,BAT32A239KK64FB,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A239,1.0.8,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A239.pdsc
+Cmsemicon,BAT32A239KK80FA,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A239,1.0.8,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A239.pdsc
 Cmsemicon,BAT32A279KM100FA,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A279,1.0.5,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A279.pdsc
 Cmsemicon,BAT32A279KM64FB,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A279,1.0.5,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A279.pdsc
 Cmsemicon,BAT32A279KM80FA,device,,,,Cortex-M0+,r0p1,NO_FPU,Little-endian,,,,1,64000000,thumbv6m-none-eabi,Cmsemicon,BAT32A279,1.0.5,http://www.mcu.com.cn/pack/,Cmsemicon.BAT32A279.pdsc
